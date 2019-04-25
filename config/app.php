@@ -176,6 +176,11 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
 
+        /*
+         * Additional
+         */
+        // Auditing (http://laravel-auditing.com)
+        OwenIt\Auditing\AuditingServiceProvider::class,
     ],
 
     /*
