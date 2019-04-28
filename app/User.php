@@ -7,10 +7,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use OwenIt\Auditing\Auditable as Auditable;
 use OwenIt\Auditing\Contracts\Auditable as AuditContracts;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements AuditContracts
 {
-    use Notifiable, Auditable;
+    use Notifiable, Auditable, HasRoles;
 
     /**
      * The attributes that are mass assignable.

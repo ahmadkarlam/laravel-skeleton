@@ -181,6 +181,8 @@ return [
          */
         // Auditing (http://laravel-auditing.com)
         OwenIt\Auditing\AuditingServiceProvider::class,
+        // Permission (https://github.com/spatie/laravel-permission)
+        Spatie\Permission\PermissionServiceProvider::class,
     ],
 
     /*
