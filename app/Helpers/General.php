@@ -1,6 +1,42 @@
 <?php
 use Illuminate\Contracts\Encryption\Encrypter;
 
+if (! function_exists('userInfo')) {
+	/**
+	* Function get current user.
+	*
+	* @return \App\User
+	*/
+	function userInfo()
+	{
+		return auth()->user();
+	}
+}
+
+if (! function_exists('userRoles')) {
+	/**
+	* Function get current user role.
+	*
+	* @return Collection
+	*/
+	function userRoles()
+	{
+		return userInfo()->getRoleNames();
+	}
+}
+
+if (! function_exists('userPermissions')) {
+	/**
+	* Function get current user permissions.
+	*
+	* @return Collection
+	*/
+	function userPermissions()
+	{
+		return userInfo()->getPermissionsViaRoles()->pluck('name');
+	}
+}
+
 if (! function_exists('encrypt')) {
 	/**
 	* Function for encrypt string.

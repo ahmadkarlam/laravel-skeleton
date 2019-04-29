@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
+        App\Providers\MacroResponseApiServiceProvider::class,
 
         /*
          * Additional
@@ -183,6 +184,8 @@ return [
         OwenIt\Auditing\AuditingServiceProvider::class,
         // Permission (https://github.com/spatie/laravel-permission)
         Spatie\Permission\PermissionServiceProvider::class,
+        // Laravel Passport
+        Laravel\Passport\PassportServiceProvider::class,
     ],
 
     /*

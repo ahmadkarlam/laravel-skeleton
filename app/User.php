@@ -5,13 +5,14 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 use OwenIt\Auditing\Auditable as Auditable;
 use OwenIt\Auditing\Contracts\Auditable as AuditContracts;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements AuditContracts
 {
-    use Notifiable, Auditable, HasRoles;
+    use Notifiable, Auditable, HasRoles, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.

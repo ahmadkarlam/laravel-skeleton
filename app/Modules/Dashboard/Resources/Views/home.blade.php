@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in!<br><br>
+                    Roles: {{ userRoles() }}<br>
+                    Permissions: {{ userPermissions() }}
                 </div>
             </div>
         </div>
