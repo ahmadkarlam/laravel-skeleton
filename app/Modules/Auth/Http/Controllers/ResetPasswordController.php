@@ -37,7 +37,7 @@ class ResetPasswordController extends Controller
         $this->middleware('guest');
     }
 
-    use RedirectsUsers;
+    // use RedirectsUsers;
 
     /**
      * Display the password reset view for the given token.
