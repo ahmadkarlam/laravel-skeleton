@@ -12,12 +12,8 @@ class LoginController extends Controller
     /**
      * Login user and create token
      *
-     * @param  String email
-     * @param  String password
-     * @param  Boolean remember_me
-     * @return String token_type
-     * @return String access_token
-     * @return String expires_at
+     * @param Illuminate\Http\Request request
+     * @return String Json
      */
     public function login(LoginRequest $request)
     {
@@ -44,6 +40,7 @@ class LoginController extends Controller
     /**
      * Logout user (Revoke the token)
      *
+     * @param Illuminate\Http\Request request
      * @return String message
      */
     public function logout(Request $request)
