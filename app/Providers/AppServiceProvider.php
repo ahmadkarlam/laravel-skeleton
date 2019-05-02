@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Modules\Dashboard\Models\Menu;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -37,11 +38,18 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view)
         {
             $userRoles = null;
+            $menu = new Menu;
             if(\Auth::check()) {
+                $menus = $menu->getMenus('backend');
                 $userRoles = ucwords(implode(', ', userRoles()->toArray()));
+            } else {
+                $menus = $menu->getMenus('frontend');
             }
             //...with this variable
-            $view->with('userRoles', $userRoles );
+            $view->with([
+                'userRoles' => $userRoles,
+                'menus' => $menus
+            ]);
         });
     }
 }
