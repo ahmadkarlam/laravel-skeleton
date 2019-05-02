@@ -23,6 +23,23 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->backendViewCompose();
+    }
+
+    /**
+     * Set variable to every view.
+     *
+     * @return void
+     */
+    private function backendViewCompose()
+    {
+        //compose all the views....
+        view()->composer('*', function ($view)
+        {
+            $userRoles = ucwords(implode(', ', userRoles()->toArray()));
+
+            //...with this variable
+            $view->with('userRoles', $userRoles );
+        });
     }
 }
