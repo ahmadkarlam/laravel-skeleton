@@ -23,9 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(\Auth::check()) {
-            $this->backendViewCompose();
-        }
+        $this->backendViewCompose();
     }
 
     /**
@@ -38,8 +36,10 @@ class AppServiceProvider extends ServiceProvider
         //compose all the views....
         view()->composer('*', function ($view)
         {
-            $userRoles = ucwords(implode(', ', userRoles()->toArray()));
-
+            $userRoles = null;
+            if(\Auth::check()) {
+                $userRoles = ucwords(implode(', ', userRoles()->toArray()));
+            }
             //...with this variable
             $view->with('userRoles', $userRoles );
         });
