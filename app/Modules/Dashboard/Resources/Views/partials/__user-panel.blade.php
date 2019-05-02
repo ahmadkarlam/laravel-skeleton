@@ -5,6 +5,6 @@
 	</div>
 	<div class="pull-left info">
 		<p>{{ userInfo()->name }}</p>
-		<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+		<a href="#"><i class="fa fa-circle text-success"></i> {{ $userRoles }}</a>
 	</div>
 </div>
