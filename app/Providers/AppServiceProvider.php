@@ -23,7 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->backendViewCompose();
+        if(\Auth::check()) {
+            $this->backendViewCompose();
+        }
     }
 
     /**
