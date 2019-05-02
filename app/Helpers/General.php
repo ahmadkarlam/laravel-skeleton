@@ -1,6 +1,20 @@
 <?php
 use Illuminate\Contracts\Encryption\Encrypter;
 
+if (! function_exists('getNamedRoutes')) {
+	/**
+	* Function get all named routes.
+	*
+	* @return array
+	*/
+	function getNamedRoutes()
+	{
+        return array_filter(array_map(function (\Illuminate\Routing\Route $route) {
+            return isset($route->action['as']) ? $route->action['as'] : null;
+        }, (array) Route::getRoutes()->getIterator()));
+	}
+}
+
 if (! function_exists('userInfo')) {
 	/**
 	* Function get current user.
