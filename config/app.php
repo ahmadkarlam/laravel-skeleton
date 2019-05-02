@@ -175,12 +175,17 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
+        App\Providers\MacroResponseApiServiceProvider::class,
 
         /*
          * Additional
          */
         // Auditing (http://laravel-auditing.com)
         OwenIt\Auditing\AuditingServiceProvider::class,
+        // Permission (https://github.com/spatie/laravel-permission)
+        Spatie\Permission\PermissionServiceProvider::class,
+        // Laravel Passport
+        Laravel\Passport\PassportServiceProvider::class,
     ],
 
     /*
